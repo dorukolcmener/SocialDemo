@@ -1,0 +1,18 @@
+@use '../styles/colors.scss';
+
+.avatar {
+  position: absolute;
+  right: 5rem;
+  top: 3rem;
+  border-radius: 100%;
+  width: 6rem;
+  height: 6rem;
+  background-size: cover;
+  background-position: center center;
+  box-shadow: 0rem 0rem 0.5rem colors.$notification;
+  cursor: pointer;
+  transition: 0.5s all;
+  &:hover {
+    box-shadow: 0rem 0rem 2rem colors.$notification;
+  }
+}

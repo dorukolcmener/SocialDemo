@@ -1,0 +1,169 @@
+@use './colors.scss';
+
+@mixin marked {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 110%;
+  background-color: colors.$brandbg;
+  z-index: 1;
+  clip-path: polygon(
+    0% 0%,
+    100% 0%,
+    100% 90%,
+    10% 90%,
+    13% 100%,
+    16% 90%,
+    0 90%
+  );
+}
+
+.sidebar {
+  width: 28rem;
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 7rem 1fr;
+  grid-template-rows: 5rem 1fr;
+  background-color: colors.$sideheader;
+  &--header {
+    &:hover {
+      cursor: pointer;
+    }
+    grid-column: 1/-1;
+    font-size: 3rem;
+    align-self: center;
+    justify-self: center;
+    opacity: 0.5;
+  }
+  &--menu {
+    grid-column: 2/-1;
+    background-color: colors.$menubg;
+    display: flex;
+    flex-direction: column;
+    input[type="checkbox"] {
+      display: none;
+      &:checked + .menuitem {
+        svg {
+          stroke: colors.$text;
+          z-index: 5;
+        }
+      }
+      & + .menuitem + .accordion {
+        z-index: -1;
+        max-height: 0px;
+        transition: all 0.3s;
+      }
+      &:checked + .menuitem + .accordion {
+        z-index: 0;
+        font-size: 1.3rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        padding: 1.5rem 1.5rem 1.5rem 2.5rem;
+        color: colors.$text;
+        background-color: colors.$accordion;
+        cursor: default;
+        max-height: 50rem;
+        ul {
+          margin-left: 1.5rem;
+          li:not(:last-child) {
+            margin-bottom: 1.5rem;
+          }
+        }
+      }
+      &:checked + .menuitem::before {
+        content: "-";
+      }
+      &:checked + .menuitem::after {
+        @include marked;
+        width: 100%;
+        background-color: colors.$red;
+      }
+    }
+    .menuitem {
+      user-select: none;
+      &:first-child {
+        height: 5.5rem;
+      }
+      &:not(:first-child)::before {
+        content: "+";
+        position: absolute;
+        font-size: 2rem;
+        right: 2.5rem;
+        z-index: 5;
+      }
+      position: relative;
+      padding: 1rem 1.5rem;
+      display: flex;
+      align-items: center;
+      height: 5rem;
+      font-size: 1.2rem;
+      &:hover {
+        @keyframes show {
+          100% {
+            width: 100%;
+          }
+        }
+        cursor: pointer;
+        &::after {
+          @include marked;
+          animation: show 0.5s forwards;
+        }
+        svg {
+          stroke: colors.$text;
+          z-index: 5;
+          color: colors.$text;
+        }
+      }
+      span {
+        z-index: 5;
+        margin-left: 1rem;
+        color: colors.$text;
+        text-transform: uppercase;
+        .notificationcount {
+          border: 1px solid colors.$notification;
+          border-radius: 0.5rem;
+          padding: 0.1rem 0.6rem;
+        }
+      }
+    }
+  }
+  &--brands {
+    background-color: colors.$brandbg;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem 1.5rem;
+    input {
+      display: none;
+      &:checked + label {
+        position: relative;
+        opacity: 1;
+        &::after {
+          position: absolute;
+          left: -1rem;
+          content: "";
+          width: 0.4rem;
+          height: 100%;
+          background-color: colors.$red;
+          border-radius: 0rem 1rem 1rem 0rem;
+        }
+      }
+    }
+    .brand {
+      transition: all 0.3s;
+      background-position: center center;
+      background-size: cover;
+      height: 4rem;
+      width: 4rem;
+      border-radius: 0.5rem;
+      margin-bottom: 1rem;
+      cursor: pointer;
+      opacity: 0.3;
+      &:hover {
+        opacity: 0.8;
+      }
+    }
+  }
+}

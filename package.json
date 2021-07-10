@@ -1,0 +1,19 @@
+{
+  "name": "socialdemo",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^0.21.1",
+    "preact": "^10.5.14",
+    "preact-feather": "^4.2.1"
+  },
+  "scripts": {
+    "start": "parcel index.html"
+  },
+  "devDependencies": {
+    "parcel-bundler": "^1.12.5",
+    "sass": "^1.35.1",
+    "typescript": "^4.3.5"
+  }
+}
