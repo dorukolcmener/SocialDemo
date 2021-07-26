@@ -7,6 +7,7 @@ import PostList from "./PostList";
 
 import axios from "axios";
 
+import apiURL from "url:../../assets/data.json";
 import "../styles/Content.scss";
 
 export default function Content() {
@@ -15,7 +16,7 @@ export default function Content() {
 
   useEffect(() => {
     axios({
-      url: "./api/data.json",
+      url: apiURL,
       timeout: 3000,
     })
       .then(({ data }) => {

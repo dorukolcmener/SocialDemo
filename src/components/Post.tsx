@@ -13,7 +13,6 @@ import {
 } from "preact-feather";
 
 export default function Post({ Post }) {
-  console.log(Post);
   const statColors = {
     "Need Approval": "#f7bf38",
     Scheduled: "#3ac183",

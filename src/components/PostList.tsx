@@ -4,7 +4,6 @@ import Post from "./Post";
 import "../styles/PostList.scss";
 
 export default function PostList({ date, posts }) {
-  console.log(posts);
   return (
     <>
       <div className="postlist">
