@@ -3,5 +3,5 @@ Psd -> html project challenge that shows my fundamental knowledge of React/Preac
 Total JS BUNDLE size: 46 KB
 Total CSS BUNDLE size: 6 KB
 
-Demo Link:
+TRY IT:
 https://dorukolcmener.github.io/SocialDemo/build/
