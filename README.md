@@ -4,4 +4,4 @@ Total JS BUNDLE size: 46 KB
 Total CSS BUNDLE size: 6 KB
 
 TRY IT:
-https://dorukolcmener.github.io/SocialDemo/build/
+https://dorukolcmener.github.io/SocialDemo/
